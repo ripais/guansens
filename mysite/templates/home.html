@@ -1,0 +1,17 @@
+{% extends 'baseme.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+
+<div class="jumbotron">
+  <h1>Welcome</h1>
+    <center>
+        <img src="{% static "correo.jpg" %}" alt="Mail"/>
+        <a href="{% url 'sensor_chart_view' %}"><img src="{% static "grafica.jpg" %}" alt="Plot"/></a>
+    </center>
+</div>
+</div>
+</div>
+{% endblock %}

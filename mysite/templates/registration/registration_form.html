@@ -1,6 +1,14 @@
 {% extends 'baseme.html' %}
 
 {% block content %}
+ <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
 <h1>Register Here</h1>
         <form method="post" action=".">
                 {% csrf_token %}
@@ -8,4 +16,22 @@
 
                 <input type="submit" value="Submit" />
         </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer" style="text-align: center">
+<a href="/register">Register</a>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+<script>
+{% if not user.is_authenticated %}
+$("ul.nav.navbar-nav.navbar-right").css("display","none");
+{% endif %}
+</script>
+
 {% endblock %}

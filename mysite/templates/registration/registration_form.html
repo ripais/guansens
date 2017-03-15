@@ -9,8 +9,8 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-<h1>Register Here</h1>
-        <form method="post" action=".">
+<h1>Sign In Here</h1>
+        <form method="post" action="." style="text-align: right" >
                 {% csrf_token %}
                 {{ form.as_p }}
 
@@ -22,8 +22,6 @@
 </div>
 </div>
 <div class="footer" style="text-align: center">
-<a href="/register">Register</a>
-</div>
 {% endblock %}
 
 {% block javascript %}

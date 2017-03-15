@@ -62,7 +62,7 @@ class DataTable(models.Model):
     fecha = models.FloatField(blank=True, null=True)
     actual = models.DateTimeField(blank=True, null=True)
     metrica = models.IntegerField()
-    numsens = models.IntegerField(blank=True, null=True)
+    numsensor = models.IntegerField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, blank=True)
     updated = models.DateTimeField(auto_now=True, blank=True)
 

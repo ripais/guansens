@@ -96,8 +96,8 @@ DATABASES = {
     'wifly': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wifly',
-        'USER': 'wifly',
-        'PASSWORD': '1234',
+        'USER': 'root',
+        'PASSWORD': 'Seville_16',
         'HOST': 'hhat.ddns.net',
         'PORT': '3306',
     }

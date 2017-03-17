@@ -12,6 +12,7 @@ from django.views.generic import MonthArchiveView
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+import datetime
 # Create your views here.
 
 def index(request):
@@ -39,36 +40,52 @@ def register(request):
 
 login_required(login_url="login/")
 def sensor_chart_view(request):
-    #Step 1: Create a DataPool with the data we want to retrieve.
-    sensordata = DataPool(
-           series=[{
-               'options': {
-               'source': DataTable.objects.all()},
-               'terms': [
-               'fecha',
-               'value']}
-             ]
-        )
-    #Step 2: Create the Chart object
-    cht = Chart(
-            datasource = sensordata,
-            series_options =
-              [{'options':{
-                  'type': 'line',
-                  'stacking': False},
-                'terms':{
-                  'fecha': [
-                    'value']
-                  }}],
-            chart_options =
-              {'title': {
-                   'text': 'Sensor distance data'},
-               'xAxis': {
-                    'title': {
-                       'text': 'Timeline'}}})
+    graph1 = DataTable.objects.filter(actual__gt = datetime.date(2017, 03, 17))
+    print graph1.query
+    ds = DataPool(
+        series=[{
+            'options': {
+                'source': graph1
+            },
+            'terms': [
+                'value',
+                'actual',
+            ]
+        }]
+    )
 
-    #Step 3: Send the chart object to the template.
-    return render_to_response({'sensor_chart_view.html', {'chart_list': cht}})
+    cht = Chart(
+        datasource=ds,
+        series_options=[{
+            'options': {
+                'type': 'line',
+                'stacking': False
+            },
+            'terms': {
+                'actual': [
+                    'value'
+                ]
+            }
+        }],
+        chart_options={
+            'title': {
+                'text': 'Altura del canal'
+            },
+            'xAxis': {
+                'title': {
+                    'text': 'fecha'
+                }
+            },
+            'credits': {
+                'enabled': True,
+                'text': 'GUANCHIP',
+                'href': 'http://guanchip.com'
+            }
+        },
+        x_sortf_mapf_mts=(None, None, False))
+        #x_sortf_mapf_mts=(None, lambda i: datetime.fromtimestamp(float(i)).strftime('%H:%M'), False))
+    # end_code
+    return render_to_response('sensor_chart_view.html', {'chart_list': cht, })
 
 class EventosDia(DayArchiveView):
     queryset = Event.objects.order_by('time')

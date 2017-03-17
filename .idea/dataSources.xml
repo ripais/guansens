@@ -17,5 +17,19 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="MySQL - wifly@hhat.ddns.net" uuid="fd6018d4-ef57-4e17-916f-3154cf6c0cf7">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://hhat.ddns.net:3306/wifly</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>

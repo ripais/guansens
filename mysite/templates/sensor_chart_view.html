@@ -1,10 +1,71 @@
-<head>
-    <!-- code to include the highcharts and jQuery libraries goes here -->
-    <!-- load_charts filter takes a comma-separated list of id's where -->
-    <!-- the charts need to be rendered to                             -->
-    {% load chartit %}
-    {{ sensor_chart_view|load_charts:"container" }}
-</head>
-<body>
-    <div id='container'> Chart will be rendered here </div>
-</body>
+{% extends "baseme.html" %}
+
+	{% block content %}
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+{%block chart_loader_header %}
+		{% load chartit %}
+		{{ chart_list|load_charts:"c1" }}
+{% endblock %}
+
+{% block chart_code %}
+					   <div class="source">
+							{% load markup %}
+							<div class="section">
+								<h1> {{ title }}</h1>
+								<div id="c1"></div>
+							</div>
+						</div>
+{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+
+		{% endblock %}
+

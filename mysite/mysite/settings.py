@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'markup_deprecated',
+    'syntax_colorize',
     'registration',
     'chartit',
     'mysite',
@@ -96,8 +98,8 @@ DATABASES = {
     'wifly': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wifly',
-        'USER': 'root',
-        'PASSWORD': 'Seville_16',
+        'USER': 'wifly',
+        'PASSWORD': '1234',
         'HOST': 'hhat.ddns.net',
         'PORT': '3306',
     }

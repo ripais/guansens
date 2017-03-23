@@ -93,11 +93,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wifly',
-        'USER': 'wifly',
-        'PASSWORD': '1234',
-        'HOST': 'hhat.ddns.net',
-        'PORT': '3306',
+        'NAME': '****',
+        'USER': '****',
+        'PASSWORD': '****',
+        'HOST': '****',
+        'PORT': '****',
     }
 }
 
@@ -139,7 +139,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 #Load Static path
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 STATIC_URL = '/static/'
 STATIC_ROOT = 'collected_static'
 STATICFILES_DIRS = [

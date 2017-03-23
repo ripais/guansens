@@ -40,7 +40,9 @@ def register(request):
 
 login_required(login_url="login/")
 def sensor_chart_view(request):
-    graph1 = DataTable.objects.filter(actual__gt = datetime.date(2017, 03, 17))
+
+
+    graph1 = DataTable.objects.filter(actual__gt = datetime.date(2017, 03, 22))
     print graph1.query
     ds = DataPool(
         series=[{
